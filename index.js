@@ -1,9 +1,9 @@
-import express from 'express'
+const express = require('express')
 const app = express()
 
 app.use(express.json())
 
-import { ChartJSNodeCanvas } from 'chartjs-node-canvas'
+const { ChartJSNodeCanvas } = require('chartjs-node-canvas')
 
 const width = 400;
 const height = 400;
@@ -58,7 +58,7 @@ async function grafico (tipo, labels, data) {
 
 
 app.get("/", (req, res) => {
-    res.send("TESTE")
+    res.sendFile(__dirname + "/pages/index.html")
 })
 
 app.post("/grafico", (req, res) => {

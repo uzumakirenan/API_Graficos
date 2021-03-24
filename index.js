@@ -3,9 +3,8 @@ const app = express()
 
 app.use(express.json())
 
-//const { ChartJSNodeCanvas } = require('chartjs-node-canvas');
+const { ChartJSNodeCanvas } = require(__dirname + "/node_modules/chartjs-node-canvas/dist/index");
 
-/*
 const width = 400;
 const height = 400;
 
@@ -57,7 +56,6 @@ async function grafico (tipo, labels, data) {
 
 };
 
-*/
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/pages/index.html")

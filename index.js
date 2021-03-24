@@ -1,9 +1,9 @@
-const express = require('express');
+import express from 'express'
 const app = express()
 
 app.use(express.json())
 
-const { ChartJSNodeCanvas } = require(__dirname + "/node_modules/chartjs-node-canvas/dist/index");
+import { ChartJSNodeCanvas } from 'chartjs-node-canvas'
 
 const width = 400;
 const height = 400;
@@ -58,10 +58,23 @@ async function grafico (tipo, labels, data) {
 
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/pages/index.html")
+    res.send("TESTE")
 })
 
+app.post("/grafico", (req, res) => {
 
+    //Conteudo Recebido
+    const { tipo, labels, data } = req.body
+
+   // res.json({ "resTipo": tipo, "resLabels": labels, "resData": data })
+
+    // Logica a ser executado com os dados recebidos, exemplo salvar as informações em um banco
+    
+    Promise.resolve(grafico(tipo, labels, data)).then(function(value){
+        res.json({ "dataUrl": value })
+    })
+    
+})
 
 
 const port = process.env.PORT || 3000;

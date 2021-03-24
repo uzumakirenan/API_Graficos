@@ -3,7 +3,7 @@ const app = express()
 
 app.use(express.json())
 
-const { ChartJSNodeCanvas } = require('chartjs-node-canvas');
+//const { ChartJSNodeCanvas } = require('chartjs-node-canvas');
 
 /*
 const width = 400;
